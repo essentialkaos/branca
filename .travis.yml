@@ -1,0 +1,27 @@
+language: go
+
+go:
+  - 1.9.x
+  - 1.10.x
+  - 1.11.x
+  - tip
+
+branches:
+  only:
+  - master
+  - develop
+
+os:
+  - linux
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - go: tip
+
+before_install:
+  - make deps-test
+  - make deps
+
+script:
+  - make test
