@@ -22,6 +22,10 @@ matrix:
 before_install:
   - make deps-test
   - make deps
+  - go get -v github.com/mattn/goveralls
+  - npm install -g codeclimate-test-reporter
 
 script:
-  - make test
+  - go test -covermode count -coverprofile cover.out
+  - goveralls -service travis-ci -repotoken $COVERALLS_TOKEN -coverprofile cover.out
+  - codeclimate-test-reporter < cover.out
