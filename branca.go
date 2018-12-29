@@ -36,6 +36,11 @@ var (
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 
+// nonceReadFunc is function for reading random nonce
+var nonceReadFunc func(d []byte) (int, error) = rand.Read
+
+// ////////////////////////////////////////////////////////////////////////////////// //
+
 // brancaVersion is current branca version
 var brancaVersion = []byte{0xBA}
 
@@ -150,7 +155,7 @@ func (b *Branca) DecodeString(token string) ([]byte, error) {
 func genNonce() ([]byte, error) {
 	nonce := make([]byte, 24)
 
-	_, err := rand.Read(nonce)
+	_, err := nonceReadFunc(nonce)
 
 	return nonce, err
 }

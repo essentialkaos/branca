@@ -8,6 +8,8 @@ package branca
 // ////////////////////////////////////////////////////////////////////////////////// //
 
 import (
+	"crypto/rand"
+	"errors"
 	"testing"
 	"time"
 
@@ -68,6 +70,23 @@ func (s *BrancaSuite) TestEncodingAEADError(c *C) {
 	_, err = brc.Encode([]byte("TEST1234abcdАБВГ"))
 
 	c.Assert(err, NotNil)
+}
+
+func (s *BrancaSuite) TestEncodingNonceError(c *C) {
+	brc, err := NewBranca([]byte("abcdefghabcdefghabcdefghabcdefgh"))
+
+	c.Assert(err, IsNil)
+	c.Assert(brc, NotNil)
+
+	nonceReadFunc = func(d []byte) (int, error) {
+		return -1, errors.New("ERROR")
+	}
+
+	_, err = brc.Encode([]byte("TEST1234abcdАБВГ"))
+
+	c.Assert(err, NotNil)
+
+	nonceReadFunc = rand.Read
 }
 
 func (s *BrancaSuite) TestEncodingToStringAEADError(c *C) {

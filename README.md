@@ -10,7 +10,14 @@
   <a href="https://essentialkaos.com/ekol"><img src="https://gh.kaos.st/ekol.svg"></a>
 </p>
 
-`branca.go` is Pure-Go [branca token specification](https://github.com/tuupola/branca-spec) implementation.
+`branca.go` is [branca token specification](https://github.com/tuupola/branca-spec) implementation.
+
+Features and benefits:
+
+* Pure Go implementation;
+* No third-party dependencies at all;
+* 100% code coverage;
+* Fuzz tests.
 
 ### Installation
 
