@@ -95,19 +95,19 @@ func ExampleBranca_Decode() {
 		return
 	}
 
-	token := []byte{186, 92, 40, 2, 172, 169, 93, 187, 60, 216, 139, 79, 89,
+	data := []byte{186, 92, 40, 2, 172, 169, 93, 187, 60, 216, 139, 79, 89,
 		25, 68, 191, 235, 113, 237, 55, 133, 168, 158, 255, 160, 36, 98, 222,
 		110, 242, 182, 153, 143, 206, 44, 141, 59, 46, 81, 124, 114, 25, 117,
 		85, 156, 170, 204, 175, 164, 57, 5, 235, 56, 1, 115, 5, 222}
 
-	payload, err := brc.Decode(token)
+	token, err := brc.Decode(data)
 
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)
 		return
 	}
 
-	fmt.Printf("Token: %s\n", string(payload))
+	fmt.Printf("Token: %s\n", string(token.Payload()))
 	// Output: Token: MySecretData
 }
 
@@ -120,14 +120,14 @@ func ExampleBranca_DecodeString() {
 		return
 	}
 
-	token := "87yoI2tNmtPGYxQMYExUw6Yn0zRJccwIiMZxAQ7OBNoLl2P2stmAfD1BLvHOIdwmjGIWxnLrNmHLG"
-	payload, err := brc.DecodeString(token)
+	data := "87yoI2tNmtPGYxQMYExUw6Yn0zRJccwIiMZxAQ7OBNoLl2P2stmAfD1BLvHOIdwmjGIWxnLrNmHLG"
+	token, err := brc.DecodeString(data)
 
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)
 		return
 	}
 
-	fmt.Printf("Token: %s\n", string(payload))
+	fmt.Printf("Token: %s\n", string(token.Payload()))
 	// Output: Token: MySecretData
 }

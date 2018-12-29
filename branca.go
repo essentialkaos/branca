@@ -25,10 +25,15 @@ type Branca struct {
 	ttl uint32
 }
 
+// Token is branca token
+type Token struct {
+	payload []byte
+	ts      uint32
+}
+
 // ////////////////////////////////////////////////////////////////////////////////// //
 
 var (
-	ErrExpiredToken   = errors.New("Token is expired")
 	ErrInvalidToken   = errors.New("Token is invalid")
 	ErrInvalidVersion = errors.New("Token has invalid version")
 	ErrBadKeyLength   = errors.New("Key must be 32 bytes long")
@@ -59,9 +64,26 @@ func NewBranca(key []byte) (*Branca, error) {
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 
+// Payload returns token payload
+func (t *Token) Payload() []byte {
+	return t.payload
+}
+
+// Timestamp returns token timestamp
+func (t *Token) Timestamp() time.Time {
+	return time.Unix(int64(t.ts), 0)
+}
+
+// ////////////////////////////////////////////////////////////////////////////////// //
+
 // SetTTL sets Time To Live
 func (b *Branca) SetTTL(ttl uint32) {
 	b.ttl = ttl
+}
+
+// IsExpired returns true if given token is expired
+func (b *Branca) IsExpired(t Token) bool {
+	return uint32(time.Now().Unix()) > t.ts+b.ttl
 }
 
 // Encode encodes payload to branca token
@@ -92,13 +114,13 @@ func (b *Branca) Encode(payload []byte) ([]byte, error) {
 }
 
 // Decode extract payload from branca token
-func (b *Branca) Decode(token []byte) ([]byte, error) {
+func (b *Branca) Decode(token []byte) (Token, error) {
 	if len(token) < 45 {
-		return nil, ErrInvalidToken
+		return Token{}, ErrInvalidToken
 	}
 
 	if token[0] != brancaVersion[0] {
-		return nil, ErrInvalidVersion
+		return Token{}, ErrInvalidVersion
 	}
 
 	header := token[0:29]
@@ -109,22 +131,16 @@ func (b *Branca) Decode(token []byte) ([]byte, error) {
 	aead, err := chacha20poly1305.NewX(b.key)
 
 	if err != nil {
-		return nil, err
+		return Token{}, err
 	}
 
 	payload, err := aead.Open(nil, nonce, cipher, header)
 
 	if err != nil {
-		return nil, err
+		return Token{}, err
 	}
 
-	if b.ttl != 0 {
-		if uint32(time.Now().Unix()) > ts+b.ttl {
-			return nil, ErrExpiredToken
-		}
-	}
-
-	return payload, nil
+	return Token{payload, ts}, nil
 }
 
 // EncodeToString create Base62 encoded token with given payload
@@ -139,11 +155,11 @@ func (b *Branca) EncodeToString(payload []byte) (string, error) {
 }
 
 // DecodeString extract payload from Base62 encoded token
-func (b *Branca) DecodeString(token string) ([]byte, error) {
+func (b *Branca) DecodeString(token string) (Token, error) {
 	data, err := DecodeBase62(token)
 
 	if err != nil {
-		return nil, err
+		return Token{}, err
 	}
 
 	return b.Decode(data)

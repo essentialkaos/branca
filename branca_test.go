@@ -108,11 +108,12 @@ func (s *BrancaSuite) TestDecoding(c *C) {
 	c.Assert(err, IsNil)
 	c.Assert(brc, NotNil)
 
-	token, _ := brc.Encode([]byte("TEST1234abcdАБВГ"))
-	payload, err := brc.Decode(token)
+	data, _ := brc.Encode([]byte("TEST1234abcdАБВГ"))
+	token, err := brc.Decode(data)
 
 	c.Assert(err, IsNil)
-	c.Assert(payload, DeepEquals, []byte("TEST1234abcdАБВГ"))
+	c.Assert(token.Payload(), DeepEquals, []byte("TEST1234abcdАБВГ"))
+	c.Assert(token.Timestamp().Unix(), Not(Equals), 0)
 }
 
 func (s *BrancaSuite) TestDecodingFromString(c *C) {
@@ -121,11 +122,11 @@ func (s *BrancaSuite) TestDecodingFromString(c *C) {
 	c.Assert(err, IsNil)
 	c.Assert(brc, NotNil)
 
-	token, _ := brc.EncodeToString([]byte("TEST1234abcdАБВГ"))
-	payload, err := brc.DecodeString(token)
+	data, _ := brc.EncodeToString([]byte("TEST1234abcdАБВГ"))
+	token, err := brc.DecodeString(data)
 
 	c.Assert(err, IsNil)
-	c.Assert(payload, DeepEquals, []byte("TEST1234abcdАБВГ"))
+	c.Assert(token.Payload(), DeepEquals, []byte("TEST1234abcdАБВГ"))
 }
 
 func (s *BrancaSuite) TestDecodingAEADError(c *C) {
@@ -155,24 +156,24 @@ func (s *BrancaSuite) TestDecodingFromStringB62Error(c *C) {
 	c.Assert(err, DeepEquals, ErrNonBase62Char)
 }
 
-func (s *BrancaSuite) TestDecodingTTLError(c *C) {
+func (s *BrancaSuite) TestDecodingExpired(c *C) {
 	brc, err := NewBranca([]byte("abcdefghabcdefghabcdefghabcdefgh"))
 
 	c.Assert(err, IsNil)
 	c.Assert(brc, NotNil)
 
-	token, err := brc.Encode([]byte("TEST1234abcdАБВГ"))
+	data, err := brc.Encode([]byte("TEST1234abcdАБВГ"))
 
 	c.Assert(err, IsNil)
-	c.Assert(token, Not(HasLen), 0)
+	c.Assert(data, Not(HasLen), 0)
 
 	brc.SetTTL(1)
 	time.Sleep(3 * time.Second)
 
-	_, err = brc.Decode(token)
+	token, err := brc.Decode(data)
 
-	c.Assert(err, NotNil)
-	c.Assert(err, DeepEquals, ErrExpiredToken)
+	c.Assert(err, IsNil)
+	c.Assert(brc.IsExpired(token), Equals, true)
 }
 
 func (s *BrancaSuite) TestDecodingSizeError(c *C) {
