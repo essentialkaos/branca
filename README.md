@@ -1,6 +1,6 @@
 <p align="center"><a href="#readme"><img src="https://gh.kaos.st/branca.svg"/></a></p>
 
-<p align="center"><a href="#installation">Installation</a> • <a href="#usage">Usage</a> • <a href="#contributing">Contributing</a> • <a href="#license">License</a></p>
+<p align="center"><a href="#installation">Installation</a> • <a href="#usage-example">Usage example</a> • <a href="#benchmarks">Benchmarks</a> • <a href="#build-status">Build Status</a> • <a href="#license">License</a></p>
 
 <p align="center">
   <a href="https://godoc.org/pkg.re/essentialkaos/branca.v1"><img src="https://godoc.org/pkg.re/essentialkaos/branca.v1?status.svg"></a>
@@ -62,6 +62,19 @@ func main() {
   fmt.Printf("Token: %s\n", token)
 }
 
+```
+
+### Benchmarks
+
+You can run benchmarks by yourself using `make bench` command.
+
+```
+PASS: branca_test.go:269: BrancaSuite.BenchmarkBase62Decoding             500000    3855 ns/op
+PASS: branca_test.go:261: BrancaSuite.BenchmarkBase62Encoding             500000    5968 ns/op
+PASS: branca_test.go:229: BrancaSuite.BenchmarkBrancaDecoding            5000000     371 ns/op
+PASS: branca_test.go:252: BrancaSuite.BenchmarkBrancaDecodingFromString   500000    4294 ns/op
+PASS: branca_test.go:220: BrancaSuite.BenchmarkBrancaEncoding            1000000    1695 ns/op
+PASS: branca_test.go:243: BrancaSuite.BenchmarkBrancaEncodingToString     200000    7968 ns/op
 ```
 
 ### Build Status

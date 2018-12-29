@@ -219,24 +219,43 @@ func (s *BrancaSuite) TestBase62Decoding(c *C) {
 
 func (s *BrancaSuite) BenchmarkBrancaEncoding(c *C) {
 	brc, _ := NewBranca([]byte("abcdefghabcdefghabcdefghabcdefgh"))
-  payload := []byte("Lorem ipsum")
+	payload := []byte("Lorem ipsum")
 
-  for i := 0; i < c.N; i++ {
-    brc.Encode(payload)
-  }
+	for i := 0; i < c.N; i++ {
+		brc.Encode(payload)
+	}
 }
 
 func (s *BrancaSuite) BenchmarkBrancaDecoding(c *C) {
 	brc, _ := NewBranca([]byte("abcdefghabcdefghabcdefghabcdefgh"))
-  payload := []byte{
-    186,92,39,144,77,213,126,132,225,72,237,97,100,168,211,156,67,88,27,126,
-    15,165,173,248,128,2,186,122,121,172,171,83,223,74,139,164,55,169,150,10,
-    158,209,216,107,110,40,17,138,14,71,85,21,197,38,95,191,
-  }
+	payload := []byte{
+		186, 92, 39, 144, 77, 213, 126, 132, 225, 72, 237, 97, 100, 168, 211, 156, 67,
+		88, 27, 126, 15, 165, 173, 248, 128, 2, 186, 122, 121, 172, 171, 83, 223, 74,
+		139, 164, 55, 169, 150, 10, 158, 209, 216, 107, 110, 40, 17, 138, 14, 71, 85,
+		21, 197, 38, 95, 191,
+	}
 
-  for i := 0; i < c.N; i++ {
-    brc.Decode(payload)
-  }
+	for i := 0; i < c.N; i++ {
+		brc.Decode(payload)
+	}
+}
+
+func (s *BrancaSuite) BenchmarkBrancaEncodingToString(c *C) {
+	brc, _ := NewBranca([]byte("abcdefghabcdefghabcdefghabcdefgh"))
+	payload := []byte("Lorem ipsum")
+
+	for i := 0; i < c.N; i++ {
+		brc.EncodeToString(payload)
+	}
+}
+
+func (s *BrancaSuite) BenchmarkBrancaDecodingFromString(c *C) {
+	brc, _ := NewBranca([]byte("abcdefghabcdefghabcdefghabcdefgh"))
+	payload := "1y3aOcgTUZQMLXDmGh9J4oAlFIr75zgTbKgTXnwgSQaskprUd4FaTe5k5XSg1jSGtzMRgu7uH690"
+
+	for i := 0; i < c.N; i++ {
+		brc.DecodeString(payload)
+	}
 }
 
 func (s *BrancaSuite) BenchmarkBase62Encoding(c *C) {
