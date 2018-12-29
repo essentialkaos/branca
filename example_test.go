@@ -46,6 +46,27 @@ func ExampleBranca_SetTTL() {
 	brc.SetTTL(60)
 }
 
+func ExampleBranca_IsExpired() {
+	key := "mysupppadupppasecretkeyforbranca"
+	brc, err := NewBranca([]byte(key))
+
+	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+		return
+	}
+
+	data := "87yoI2tNmtPGYxQMYExUw6Yn0zRJccwIiMZxAQ7OBNoLl2P2stmAfD1BLvHOIdwmjGIWxnLrNmHLG"
+	token, err := brc.DecodeString(data)
+
+	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+		return
+	}
+
+	fmt.Printf("Token expired: %t", brc.IsExpired(token))
+	// Output: Token expired: true
+}
+
 func ExampleBranca_Encode() {
 	key := "mysupppadupppasecretkeyforbranca"
 	brc, err := NewBranca([]byte(key))
@@ -107,8 +128,8 @@ func ExampleBranca_Decode() {
 		return
 	}
 
-	fmt.Printf("Token: %s\n", string(token.Payload()))
-	// Output: Token: MySecretData
+	fmt.Printf("Payload: %s\n", string(token.Payload()))
+	// Output: Payload: MySecretData
 }
 
 func ExampleBranca_DecodeString() {
@@ -128,6 +149,47 @@ func ExampleBranca_DecodeString() {
 		return
 	}
 
-	fmt.Printf("Token: %s\n", string(token.Payload()))
-	// Output: Token: MySecretData
+	fmt.Printf("Payload: %s\n", string(token.Payload()))
+	// Output: Payload: MySecretData
+}
+
+func ExampleToken_Payload() {
+	key := "mysupppadupppasecretkeyforbranca"
+	brc, err := NewBranca([]byte(key))
+
+	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+		return
+	}
+
+	data := "87yoI2tNmtPGYxQMYExUw6Yn0zRJccwIiMZxAQ7OBNoLl2P2stmAfD1BLvHOIdwmjGIWxnLrNmHLG"
+	token, err := brc.DecodeString(data)
+
+	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+		return
+	}
+
+	fmt.Printf("Payload: %s\n", string(token.Payload()))
+	// Output: Payload: MySecretData
+}
+
+func ExampleToken_Timestamp() {
+	key := "mysupppadupppasecretkeyforbranca"
+	brc, err := NewBranca([]byte(key))
+
+	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+		return
+	}
+
+	data := "87yoI2tNmtPGYxQMYExUw6Yn0zRJccwIiMZxAQ7OBNoLl2P2stmAfD1BLvHOIdwmjGIWxnLrNmHLG"
+	token, err := brc.DecodeString(data)
+
+	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+		return
+	}
+
+	fmt.Printf("Timestamp: %v\n", token.Timestamp())
 }
