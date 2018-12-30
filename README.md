@@ -8,7 +8,7 @@
   <a href="https://travis-ci.org/essentialkaos/branca"><img src="https://travis-ci.org/essentialkaos/branca.svg"></a>
   <a href='https://coveralls.io/github/essentialkaos/branca?branch=develop'><img src='https://coveralls.io/repos/github/essentialkaos/branca/badge.svg?branch=develop' alt='Coverage Status' /></a>
   <a href="https://codebeat.co/projects/github-com-essentialkaos-branca-master"><img alt="codebeat badge" src="https://codebeat.co/badges/eca8a1ed-a16f-4005-a7bc-0d16f8d70ae4" /></a>
-  <a href="https://essentialkaos.com/ekol"><img src="https://gh.kaos.st/ekol.svg"></a>
+  <img src="https://gh.kaos.st/mit.svg">
 </p>
 
 `branca.go` is [branca token specification](https://github.com/tuupola/branca-spec) implementation.
@@ -95,6 +95,6 @@ PASS: branca_test.go:243: BrancaSuite.BenchmarkBrancaEncodingToString     200000
 
 ### License
 
-[EKOL](https://essentialkaos.com/ekol)
+[MIT](LICENSE)
 
 <p align="center"><a href="https://essentialkaos.com"><img src="https://gh.kaos.st/ekgh.svg"/></a></p>
