@@ -2,7 +2,7 @@ package branca
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 //                                                                                    //
-//                     Copyright (c) 2009-2018 ESSENTIAL KAOS                         //
+//                     Copyright (c) 2009-2019 ESSENTIAL KAOS                         //
 //        Essential Kaos Open Source License <https://essentialkaos.com/ekol>         //
 //                                                                                    //
 // ////////////////////////////////////////////////////////////////////////////////// //
@@ -14,6 +14,8 @@ import (
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 
+// ErrNonBase62Char means that given string contains symbol which is not a part of
+// the Base62 alphabet
 var ErrNonBase62Char = errors.New("Got non Base62 character")
 
 // ////////////////////////////////////////////////////////////////////////////////// //
@@ -87,12 +89,12 @@ func DecodeBase62(src string) ([]byte, error) {
 
 		for j := 0; j < len(bytes); j++ {
 			carry += int(bytes[j]) * 62
-			bytes[j] = byte(carry & 0xff)
+			bytes[j] = byte(carry & 0xFF)
 			carry >>= 8
 		}
 
 		for carry > 0 {
-			bytes = append(bytes, byte(carry&0xff))
+			bytes = append(bytes, byte(carry&0xFF))
 			carry >>= 8
 		}
 	}
