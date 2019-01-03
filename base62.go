@@ -89,12 +89,12 @@ func DecodeBase62(src string) ([]byte, error) {
 
 		for j := 0; j < len(bytes); j++ {
 			carry += int(bytes[j]) * 62
-			bytes[j] = byte(carry & 0xff)
+			bytes[j] = byte(carry & 0xFF)
 			carry >>= 8
 		}
 
 		for carry > 0 {
-			bytes = append(bytes, byte(carry&0xff))
+			bytes = append(bytes, byte(carry&0xFF))
 			carry >>= 8
 		}
 	}
