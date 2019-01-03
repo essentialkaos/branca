@@ -4,7 +4,7 @@ package branca
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 //                                                                                    //
-//                     Copyright (c) 2009-2018 ESSENTIAL KAOS                         //
+//                     Copyright (c) 2009-2019 ESSENTIAL KAOS                         //
 //        Essential Kaos Open Source License <https://essentialkaos.com/ekol>         //
 //                                                                                    //
 // ////////////////////////////////////////////////////////////////////////////////// //
@@ -31,4 +31,24 @@ func FuzzDecode(data []byte) int {
 	}
 
 	return 0
+}
+
+func FuzzEncodeBase62(data []byte) int {
+	s := EncodeBase62(data)
+
+	if s == "" {
+		return 1
+	}
+
+	return 0
+}
+
+func FuzzDecodeBase62(data []byte) int {
+	_, err := DecodeBase62(data)
+
+	if err != nil {
+		return 1
+	}
+
+	return 1
 }

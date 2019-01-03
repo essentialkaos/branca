@@ -21,6 +21,8 @@ bench: ## Run benchmarks
 gen-fuzz: ## Generate go-fuzz archives
 	go-fuzz-build -func FuzzEncode -o "branca-enc-fuzz.zip" github.com/essentialkaos/branca
 	go-fuzz-build -func FuzzDecode -o "branca-dec-fuzz.zip" github.com/essentialkaos/branca
+	go-fuzz-build -func FuzzEncodeBase62 -o "branca-enc62-fuzz.zip" github.com/essentialkaos/branca
+	go-fuzz-build -func FuzzDecodeBase62 -o "branca-dec62-fuzz.zip" github.com/essentialkaos/branca
 
 fmt: ## Format source code with gofmt
 	find . -name "*.go" -exec gofmt -s -w {} \;

@@ -1,4 +1,4 @@
-// Package for working with Branca tokens
+// Package branca implements branca token specification
 package branca
 
 // ////////////////////////////////////////////////////////////////////////////////// //
@@ -19,6 +19,30 @@ import (
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 
+const (
+	// KEY_SIZE is Branca key is always 32 bytes (i.e 256 bit)
+	KEY_SIZE = 32
+
+	// MIN_TOKEN_SIZE is minimal token size is 45 bytes (with empty payload)
+	MIN_TOKEN_SIZE = 45
+)
+
+const (
+	// VERSION_SIZE is Branca version size (1B)
+	VERSION_SIZE = 1
+
+	// TIMESTAMP_SIZE is Branca timestamp size (4B)
+	TIMESTAMP_SIZE = 4
+
+	// NONCE_SIZE is Branca nonce size (24B)
+	NONCE_SIZE = 24
+
+	// HEADER_SIZE is Branca header size (29B)
+	HEADER_SIZE = VERSION_SIZE + TIMESTAMP_SIZE + NONCE_SIZE
+)
+
+// ////////////////////////////////////////////////////////////////////////////////// //
+
 // Branca is branca struct
 type Branca struct {
 	key []byte
@@ -34,9 +58,14 @@ type Token struct {
 // ////////////////////////////////////////////////////////////////////////////////// //
 
 var (
-	ErrInvalidToken   = errors.New("Token is invalid")
+	// ErrInvalidToken means that given data doesn't look like branca token
+	ErrInvalidToken = errors.New("Token is invalid")
+
+	// ErrInvalidVersion means that token has an unsupported version
 	ErrInvalidVersion = errors.New("Token has invalid version")
-	ErrBadKeyLength   = errors.New("Key must be 32 bytes long")
+
+	// ErrBadKeyLength is returned if key not equal to 32 bytes
+	ErrBadKeyLength = errors.New("Key must be 32 bytes long")
 )
 
 // ////////////////////////////////////////////////////////////////////////////////// //
@@ -53,7 +82,7 @@ var brancaVersion = []byte{0xBA}
 
 // NewBranca creates new branca struct
 func NewBranca(key []byte) (*Branca, error) {
-	if len(key) != 32 {
+	if len(key) != KEY_SIZE {
 		return nil, ErrBadKeyLength
 	}
 
@@ -94,10 +123,11 @@ func (b *Branca) Encode(payload []byte) ([]byte, error) {
 		return nil, err
 	}
 
-	ts := make([]byte, 4)
+	ts := make([]byte, TIMESTAMP_SIZE)
 	binary.BigEndian.PutUint32(ts, uint32(time.Now().Unix()))
 
 	// Version (1B) || Timestamp (4B) || Nonce (24B) || Ciphertext (*B) || Tag (16B)
+
 	token := append(brancaVersion, ts...)
 	token = append(token, nonce...)
 
@@ -123,10 +153,10 @@ func (b *Branca) Decode(token []byte) (Token, error) {
 		return Token{}, ErrInvalidVersion
 	}
 
-	header := token[0:29]
-	cipher := token[29:]
-	ts := binary.BigEndian.Uint32(header[1:5])
-	nonce := header[5:]
+	header := token[0:HEADER_SIZE]
+	cipher := token[HEADER_SIZE:]
+	ts := binary.BigEndian.Uint32(header[VERSION_SIZE : VERSION_SIZE+TIMESTAMP_SIZE])
+	nonce := header[VERSION_SIZE+TIMESTAMP_SIZE:]
 
 	aead, err := chacha20poly1305.NewX(b.key)
 
@@ -169,7 +199,7 @@ func (b *Branca) DecodeString(token string) (Token, error) {
 
 // genNonce generates random nonce
 func genNonce() ([]byte, error) {
-	nonce := make([]byte, 24)
+	nonce := make([]byte, NONCE_SIZE)
 
 	_, err := nonceReadFunc(nonce)
 
