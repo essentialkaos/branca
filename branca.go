@@ -9,6 +9,7 @@ package branca
 // ////////////////////////////////////////////////////////////////////////////////// //
 
 import (
+	"bytes"
 	"crypto/rand"
 	"encoding/binary"
 	"errors"
@@ -128,8 +129,11 @@ func (b *Branca) Encode(payload []byte) ([]byte, error) {
 
 	// Version (1B) || Timestamp (4B) || Nonce (24B) || Ciphertext (*B) || Tag (16B)
 
-	token := append(brancaVersion, ts...)
-	token = append(token, nonce...)
+	var buf bytes.Buffer
+
+	buf.Write(brancaVersion)
+	buf.Write(ts)
+	buf.Write(nonce)
 
 	aead, err := chacha20poly1305.NewX(b.key)
 
@@ -137,10 +141,9 @@ func (b *Branca) Encode(payload []byte) ([]byte, error) {
 		return nil, err
 	}
 
-	cipher := aead.Seal(nil, nonce, payload, token)
-	token = append(token, cipher...)
+	buf.Write(aead.Seal(nil, nonce, payload, buf.Bytes()))
 
-	return token, nil
+	return buf.Bytes(), nil
 }
 
 // Decode extract payload from branca token
@@ -153,24 +156,19 @@ func (b *Branca) Decode(token []byte) (Token, error) {
 		return Token{}, ErrInvalidVersion
 	}
 
-	header := token[0:HEADER_SIZE]
-	cipher := token[HEADER_SIZE:]
-	ts := binary.BigEndian.Uint32(header[VERSION_SIZE : VERSION_SIZE+TIMESTAMP_SIZE])
-	nonce := header[VERSION_SIZE+TIMESTAMP_SIZE:]
-
 	aead, err := chacha20poly1305.NewX(b.key)
 
 	if err != nil {
 		return Token{}, err
 	}
 
-	payload, err := aead.Open(nil, nonce, cipher, header)
+	payload, err := aead.Open(nil, token[VERSION_SIZE+TIMESTAMP_SIZE:HEADER_SIZE], token[HEADER_SIZE:], token[:HEADER_SIZE])
 
 	if err != nil {
 		return Token{}, err
 	}
 
-	return Token{payload, ts}, nil
+	return Token{payload, binary.BigEndian.Uint32(token[VERSION_SIZE : VERSION_SIZE+TIMESTAMP_SIZE])}, nil
 }
 
 // EncodeToString create Base62 encoded token with given payload
