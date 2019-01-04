@@ -16,7 +16,7 @@ test: ## Run tests
 	go test -covermode=count .
 
 bench: ## Run benchmarks
-	go test -check.b
+	go test -check.b -check.bmem
 
 gen-fuzz: ## Generate go-fuzz archives
 	go-fuzz-build -func FuzzEncode -o "branca-enc-fuzz.zip" github.com/essentialkaos/branca
