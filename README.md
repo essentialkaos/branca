@@ -78,12 +78,12 @@ func main() {
 You can run benchmarks by yourself using `make bench` command.
 
 ```
-BrancaSuite.BenchmarkBase62Decoding             500000     3829 ns/op      128 B/op      5 allocs/op
-BrancaSuite.BenchmarkBase62Encoding             500000     5976 ns/op     2368 B/op     10 allocs/op
-BrancaSuite.BenchmarkBrancaDecoding            5000000      372 ns/op       48 B/op      2 allocs/op
-BrancaSuite.BenchmarkBrancaDecodingFromString   500000     4346 ns/op      176 B/op      7 allocs/op
-BrancaSuite.BenchmarkBrancaEncoding            1000000     1699 ns/op      200 B/op      6 allocs/op
-BrancaSuite.BenchmarkBrancaEncodingToString     200000     7975 ns/op     2568 B/op     16 allocs/op
+BrancaSuite.BenchmarkBase62Decoding             500000     3807 ns/op      128 B/op      5 allocs/op
+BrancaSuite.BenchmarkBase62Encoding             500000     5938 ns/op     2368 B/op     10 allocs/op
+BrancaSuite.BenchmarkBrancaDecoding            5000000      373 ns/op       48 B/op      2 allocs/op
+BrancaSuite.BenchmarkBrancaDecodingFromString   500000     4379 ns/op      176 B/op      7 allocs/op
+BrancaSuite.BenchmarkBrancaEncoding            1000000     1680 ns/op      208 B/op      4 allocs/op
+BrancaSuite.BenchmarkBrancaEncodingToString     200000     7927 ns/op     2576 B/op     14 allocs/op
 ```
 
 ### Build Status
