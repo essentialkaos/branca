@@ -226,7 +226,6 @@ func (s *BrancaSuite) TestVersionCheckFail(c *C) {
 
 func (s *BrancaSuite) TestBase62Encoding(c *C) {
 	c.Assert(EncodeBase62([]byte{}), Equals, "")
-	c.Assert(EncodeBase62([]byte{0, 0, 0}), Equals, "000")
 }
 
 func (s *BrancaSuite) TestBase62Decoding(c *C) {
