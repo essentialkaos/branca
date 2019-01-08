@@ -11,7 +11,7 @@
   <img src="https://gh.kaos.st/mit.svg">
 </p>
 
-`branca.go` is [branca token specification](https://github.com/tuupola/branca-spec) implementation.
+`branca.go` is [branca token specification](https://github.com/tuupola/branca-spec) implementation for Golang 1.10+.
 
 Features and benefits:
 
@@ -28,7 +28,7 @@ Before the initial install allows git to use redirects for [pkg.re](https://gith
 git config --global http.https://pkg.re.followRedirects true
 ```
 
-Make sure you have a working Go 1.9+ workspace (_[instructions](https://golang.org/doc/install)_), then:
+Make sure you have a working Go 1.10+ workspace (_[instructions](https://golang.org/doc/install)_), then:
 
 ````
 go get pkg.re/essentialkaos/branca.v1
