@@ -11,7 +11,7 @@
   <img src="https://gh.kaos.st/mit.svg">
 </p>
 
-`branca.go` is [branca token specification](https://github.com/tuupola/branca-spec) implementation.
+`branca.go` is [branca token specification](https://github.com/tuupola/branca-spec) implementation for Golang 1.10+.
 
 Features and benefits:
 
@@ -28,7 +28,7 @@ Before the initial install allows git to use redirects for [pkg.re](https://gith
 git config --global http.https://pkg.re.followRedirects true
 ```
 
-Make sure you have a working Go 1.9+ workspace (_[instructions](https://golang.org/doc/install)_), then:
+Make sure you have a working Go 1.10+ workspace (_[instructions](https://golang.org/doc/install)_), then:
 
 ````
 go get pkg.re/essentialkaos/branca.v1
@@ -78,12 +78,12 @@ func main() {
 You can run benchmarks by yourself using `make bench` command.
 
 ```
-BrancaSuite.BenchmarkBase62Decoding             500000     3807 ns/op      128 B/op      5 allocs/op
-BrancaSuite.BenchmarkBase62Encoding             500000     5938 ns/op     2368 B/op     10 allocs/op
+BrancaSuite.BenchmarkBase62Decoding            1000000     1046 ns/op      384 B/op      6 allocs/op
+BrancaSuite.BenchmarkBase62Encoding            1000000     1913 ns/op      512 B/op      6 allocs/op
 BrancaSuite.BenchmarkBrancaDecoding            5000000      373 ns/op       48 B/op      2 allocs/op
-BrancaSuite.BenchmarkBrancaDecodingFromString   500000     4379 ns/op      176 B/op      7 allocs/op
-BrancaSuite.BenchmarkBrancaEncoding            1000000     1680 ns/op      208 B/op      4 allocs/op
-BrancaSuite.BenchmarkBrancaEncodingToString     200000     7927 ns/op     2576 B/op     14 allocs/op
+BrancaSuite.BenchmarkBrancaDecodingFromString  1000000     1463 ns/op      432 B/op      8 allocs/op
+BrancaSuite.BenchmarkBrancaEncoding            1000000     1677 ns/op      208 B/op      4 allocs/op
+BrancaSuite.BenchmarkBrancaEncodingToString     500000     3977 ns/op      720 B/op     10 allocs/op
 ```
 
 ### Build Status
