@@ -5,7 +5,7 @@
 <p align="center">
   <a href="https://godoc.org/pkg.re/essentialkaos/branca.v1"><img src="https://godoc.org/pkg.re/essentialkaos/branca.v1?status.svg"></a>
   <a href="https://goreportcard.com/report/github.com/essentialkaos/branca"><img src="https://goreportcard.com/badge/github.com/essentialkaos/branca"></a>
-  <a href="https://travis-ci.org/essentialkaos/branca"><img src="https://travis-ci.org/essentialkaos/branca.svg"></a>
+  <a href="https://travis-ci.com/essentialkaos/branca"><img src="https://travis-ci.com/essentialkaos/branca.svg"></a>
   <a href='https://coveralls.io/github/essentialkaos/branca?branch=develop'><img src='https://coveralls.io/repos/github/essentialkaos/branca/badge.svg?branch=develop' alt='Coverage Status' /></a>
   <a href="https://codebeat.co/projects/github-com-essentialkaos-branca-master"><img alt="codebeat badge" src="https://codebeat.co/badges/eca8a1ed-a16f-4005-a7bc-0d16f8d70ae4" /></a>
   <img src="https://gh.kaos.st/mit.svg">
@@ -90,8 +90,8 @@ BrancaSuite.BenchmarkBrancaEncodingToString     500000     3977 ns/op      720 B
 
 | Branch     | Status |
 |------------|--------|
-| `master` (_Stable_) | [![Build Status](https://travis-ci.org/essentialkaos/branca.svg?branch=master)](https://travis-ci.org/essentialkaos/branca) |
-| `develop` (_Unstable_) | [![Build Status](https://travis-ci.org/essentialkaos/branca.svg?branch=develop)](https://travis-ci.org/essentialkaos/branca) |
+| `master` (_Stable_) | [![Build Status](https://travis-ci.com/essentialkaos/branca.svg?branch=master)](https://travis-ci.com/essentialkaos/branca) |
+| `develop` (_Unstable_) | [![Build Status](https://travis-ci.com/essentialkaos/branca.svg?branch=develop)](https://travis-ci.com/essentialkaos/branca) |
 
 ### License
 
