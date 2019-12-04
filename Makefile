@@ -24,6 +24,9 @@ deps-test: git-config ## Download dependencies for tests
 test: ## Run tests
 	go test -covermode=count .
 
+bench: ## Run benchmarks
+	go test -check.b
+
 gen-fuzz: ## Generate archives for fuzz testing
 	which go-fuzz-build &>/dev/null || go get -u -v github.com/dvyukov/go-fuzz/go-fuzz-build
 	go-fuzz-build -o fuzz.zip github.com/essentialkaos/branca
