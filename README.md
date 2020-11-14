@@ -1,9 +1,9 @@
 <p align="center"><a href="#readme"><img src="https://gh.kaos.st/branca.svg"/></a></p>
 
 <p align="center">
-  <a href="https://godoc.org/pkg.re/essentialkaos/branca.v1"><img src="https://godoc.org/pkg.re/essentialkaos/branca.v1?status.svg"></a>
+  <a href="https://pkg.go.dev/github.com/essentialkaos/branca"><img src="https://pkg.go.dev/badge/github.com/essentialkaos/branca"></a>
   <a href="https://goreportcard.com/report/github.com/essentialkaos/branca"><img src="https://goreportcard.com/badge/github.com/essentialkaos/branca"></a>
-  <a href="https://travis-ci.com/essentialkaos/branca"><img src="https://travis-ci.com/essentialkaos/branca.svg"></a>
+  <a href="https://github.com/essentialkaos/branca/actions"><img src="https://github.com/essentialkaos/branca/workflows/CI/badge.svg" alt="GitHub Actions Status" /></a>
   <a href="https://github.com/essentialkaos/branca/actions?query=workflow%3ACodeQL"><img src="https://github.com/essentialkaos/branca/workflows/CodeQL/badge.svg" /></a>
   <a href='https://coveralls.io/github/essentialkaos/branca?branch=develop'><img src='https://coveralls.io/repos/github/essentialkaos/branca/badge.svg?branch=develop' alt='Coverage Status' /></a>
   <a href="https://codebeat.co/projects/github-com-essentialkaos-branca-master"><img alt="codebeat badge" src="https://codebeat.co/badges/eca8a1ed-a16f-4005-a7bc-0d16f8d70ae4" /></a>
@@ -14,7 +14,7 @@
 
 <br/>
 
-`branca.go` is [branca token specification](https://github.com/tuupola/branca-spec) implementation for Golang 1.13+.
+`branca.go` is [branca token specification](https://github.com/tuupola/branca-spec) implementation for Golang 1.14+.
 
 Features and benefits:
 
@@ -25,7 +25,7 @@ Features and benefits:
 
 ### Installation
 
-Make sure you have a working Go 1.13+ workspace (_[instructions](https://golang.org/doc/install)_), then:
+Make sure you have a working Go 1.14+ workspace (_[instructions](https://golang.org/doc/install)_), then:
 
 ````
 go get pkg.re/essentialkaos/branca.v1
@@ -87,8 +87,8 @@ BrancaSuite.BenchmarkBrancaEncodingToString     500000     3977 ns/op      720 B
 
 | Branch     | Status |
 |------------|--------|
-| `master` (_Stable_) | [![Build Status](https://travis-ci.com/essentialkaos/branca.svg?branch=master)](https://travis-ci.com/essentialkaos/branca) |
-| `develop` (_Unstable_) | [![Build Status](https://travis-ci.com/essentialkaos/branca.svg?branch=develop)](https://travis-ci.com/essentialkaos/branca) |
+| `master` (_Stable_) | ![CI](https://github.com/essentialkaos/branca/workflows/CI/badge.svg?branch=master) |
+| `develop` (_Unstable_) | ![CI](https://github.com/essentialkaos/branca/workflows/CI/badge.svg?branch=develop) |
 
 ### License
 
