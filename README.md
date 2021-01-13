@@ -1,7 +1,7 @@
 <p align="center"><a href="#readme"><img src="https://gh.kaos.st/branca.svg"/></a></p>
 
 <p align="center">
-  <a href="https://pkg.go.dev/github.com/essentialkaos/branca"><img src="https://pkg.go.dev/badge/github.com/essentialkaos/branca"></a>
+  <a href="https://pkg.go.dev/github.com/essentialkaos/branca"><img src="https://gh.kaos.st/godoc.svg"></a>
   <a href="https://goreportcard.com/report/github.com/essentialkaos/branca"><img src="https://goreportcard.com/badge/github.com/essentialkaos/branca"></a>
   <a href="https://github.com/essentialkaos/branca/actions"><img src="https://github.com/essentialkaos/branca/workflows/CI/badge.svg" alt="GitHub Actions Status" /></a>
   <a href="https://github.com/essentialkaos/branca/actions?query=workflow%3ACodeQL"><img src="https://github.com/essentialkaos/branca/workflows/CodeQL/badge.svg" /></a>
