@@ -14,7 +14,7 @@
 
 <br/>
 
-`branca.go` is [branca token specification](https://github.com/tuupola/branca-spec) implementation for Golang 1.14+.
+`branca.go` is [branca token specification](https://github.com/tuupola/branca-spec) implementation for Golang 1.15+.
 
 Features and benefits:
 
@@ -25,7 +25,7 @@ Features and benefits:
 
 ### Installation
 
-Make sure you have a working Go 1.14+ workspace (_[instructions](https://golang.org/doc/install)_), then:
+Make sure you have a working Go 1.15+ workspace (_[instructions](https://golang.org/doc/install)_), then:
 
 ````
 go get pkg.re/essentialkaos/branca.v1
