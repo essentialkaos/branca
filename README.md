@@ -1,20 +1,20 @@
 <p align="center"><a href="#readme"><img src="https://gh.kaos.st/branca.svg"/></a></p>
 
 <p align="center">
-  <a href="https://pkg.go.dev/github.com/essentialkaos/branca"><img src="https://gh.kaos.st/godoc.svg"></a>
-  <a href="https://goreportcard.com/report/github.com/essentialkaos/branca"><img src="https://goreportcard.com/badge/github.com/essentialkaos/branca"></a>
-  <a href="https://github.com/essentialkaos/branca/actions"><img src="https://github.com/essentialkaos/branca/workflows/CI/badge.svg" alt="GitHub Actions Status" /></a>
-  <a href="https://github.com/essentialkaos/branca/actions?query=workflow%3ACodeQL"><img src="https://github.com/essentialkaos/branca/workflows/CodeQL/badge.svg" /></a>
-  <a href='https://coveralls.io/github/essentialkaos/branca?branch=develop'><img src='https://coveralls.io/repos/github/essentialkaos/branca/badge.svg?branch=develop' alt='Coverage Status' /></a>
-  <a href="https://codebeat.co/projects/github-com-essentialkaos-branca-master"><img alt="codebeat badge" src="https://codebeat.co/badges/eca8a1ed-a16f-4005-a7bc-0d16f8d70ae4" /></a>
-  <img src="https://gh.kaos.st/mit.svg">
+  <a href="https://kaos.sh/g/branca.v1?docs"><img src="https://gh.kaos.st/godoc.svg" alt="PkgGoDev" /></a>
+  <a href="https://kaos.sh/r/branca"><img src="https://kaos.sh/r/branca.svg" alt="GoReportCard" /></a>
+  <a href="https://kaos.sh/c/branca"><img src="https://kaos.sh/c/branca.svg" alt="Coverage Status" /></a>
+  <a href="https://kaos.sh/b/branca"><img src="https://codebeat.co/badges/eca8a1ed-a16f-4005-a7bc-0d16f8d70ae4" alt="Codebeat badge" /></a>
+  <a href="https://kaos.sh/w/branca/ci"><img src="https://kaos.sh/w/branca/ci.svg" alt="GitHub Actions CI Status" /></a>
+  <a href="https://kaos.sh/w/branca/codeql"><img src="https://kaos.sh/w/branca/codeql.svg" alt="GitHub Actions CodeQL Status" /></a>
+  <a href="#license"><img src="https://gh.kaos.st/mit.svg" /></a>
 </p>
 
 <p align="center"><a href="#installation">Installation</a> • <a href="#usage-example">Usage example</a> • <a href="#benchmarks">Benchmarks</a> • <a href="#build-status">Build Status</a> • <a href="#license">License</a></p>
 
 <br/>
 
-`branca.go` is [branca token specification](https://github.com/tuupola/branca-spec) implementation for Golang 1.14+.
+`branca.go` is [branca token specification](https://github.com/tuupola/branca-spec) implementation for Golang 1.15+.
 
 Features and benefits:
 
@@ -25,7 +25,7 @@ Features and benefits:
 
 ### Installation
 
-Make sure you have a working Go 1.14+ workspace (_[instructions](https://golang.org/doc/install)_), then:
+Make sure you have a working Go 1.15+ workspace (_[instructions](https://golang.org/doc/install)_), then:
 
 ````
 go get pkg.re/essentialkaos/branca.v1
@@ -85,10 +85,10 @@ BrancaSuite.BenchmarkBrancaEncodingToString     500000     3977 ns/op      720 B
 
 ### Build Status
 
-| Branch     | Status |
-|------------|--------|
-| `master` (_Stable_) | ![CI](https://github.com/essentialkaos/branca/workflows/CI/badge.svg?branch=master) |
-| `develop` (_Unstable_) | ![CI](https://github.com/essentialkaos/branca/workflows/CI/badge.svg?branch=develop) |
+| Branch | Status |
+|--------|----------|
+| `master` | [![CI](https://kaos.sh/w/branca/ci.svg?branch=master)](https://kaos.sh/w/branca/ci?query=branch:master) |
+| `develop` | [![CI](https://kaos.sh/w/branca/ci.svg?branch=develop)](https://kaos.sh/w/branca/ci?query=branch:develop) |
 
 ### License
 

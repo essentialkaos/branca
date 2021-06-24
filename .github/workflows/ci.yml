@@ -13,10 +13,11 @@ jobs:
 
     env:
       SRC_DIR: src/github.com/${{ github.repository }}
+      GO111MODULE: auto
 
     strategy:
       matrix:
-        go: [ '1.14.x', '1.15.x' ]
+        go: [ '1.15.x', '1.16.x' ]
 
     steps:
       - name: Set up Go
@@ -77,17 +78,42 @@ jobs:
 
     needs: Go
 
+    env:
+      SRC_DIR: src/github.com/${{ github.repository }}
+      GO111MODULE: auto
+
     steps:
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: '1.16.x'
+        id: go
+
+      - name: Setup PATH
+        run: |
+          echo "GOPATH=${{ github.workspace }}" >> "$GITHUB_ENV"
+          echo "GOBIN=${{ github.workspace }}/bin" >> "$GITHUB_ENV"
+          echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
+
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          path: ${{env.SRC_DIR}}
+
+      - name: Download dependencies
+        working-directory: ${{env.SRC_DIR}}
+        run: make deps
 
       - name: Install Aligo
+        working-directory: ${{env.SRC_DIR}}
         run: |
           wget https://apps.kaos.st/aligo/latest/linux/x86_64/aligo
           chmod +x aligo
 
       - name: Print Aligo version info
+        working-directory: ${{env.SRC_DIR}}
         run: ./aligo --version
 
       - name: Check Go structs alignment info
+        working-directory: ${{env.SRC_DIR}}
         run: ./aligo check ./...
