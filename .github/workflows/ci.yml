@@ -17,7 +17,7 @@ jobs:
 
     strategy:
       matrix:
-        go: [ '1.15.x', '1.16.x' ]
+        go: [ '1.16.x', '1.17.x' ]
 
     steps:
       - name: Set up Go
@@ -60,7 +60,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v1
         with: 
-          node-version: '10.x'
+          node-version: '14.x'
 
       - name: Install codeclimate-test-reporter
         run: npm install -g codeclimate-test-reporter
@@ -104,16 +104,8 @@ jobs:
         working-directory: ${{env.SRC_DIR}}
         run: make deps
 
-      - name: Install Aligo
-        working-directory: ${{env.SRC_DIR}}
-        run: |
-          wget https://apps.kaos.st/aligo/latest/linux/x86_64/aligo
-          chmod +x aligo
-
-      - name: Print Aligo version info
-        working-directory: ${{env.SRC_DIR}}
-        run: ./aligo --version
-
-      - name: Check Go structs alignment info
-        working-directory: ${{env.SRC_DIR}}
-        run: ./aligo check ./...
+      - name: Check Golang sources with Aligo
+        uses: essentialkaos/aligo-action@v1
+        with:
+          path: ${{env.SRC_DIR}}
+          files: ./...
