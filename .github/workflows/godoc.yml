@@ -10,4 +10,4 @@ jobs:
 
     steps:
       - name: Trigger GoSumDB and PkgGoDev
-        uses: essentialkaos/pkgre-godoc-action@v1
+        uses: essentialkaos/godoc-action@v1

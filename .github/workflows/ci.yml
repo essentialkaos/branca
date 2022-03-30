@@ -17,7 +17,7 @@ jobs:
 
     strategy:
       matrix:
-        go: [ '1.16.x', '1.17.x' ]
+        go: [ '1.16.x', '1.17.x', '1.18.x' ]
 
     steps:
       - name: Set up Go
@@ -32,7 +32,7 @@ jobs:
           echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
 
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           path: ${{env.SRC_DIR}}
 
@@ -58,7 +58,7 @@ jobs:
         run: goveralls -service github -coverprofile cover.out
 
       - name: Set up Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with: 
           node-version: '14.x'
 
@@ -86,7 +86,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v2
         with:
-          go-version: '1.16.x'
+          go-version: '1.17.x'
         id: go
 
       - name: Setup PATH
@@ -96,7 +96,7 @@ jobs:
           echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
 
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           path: ${{env.SRC_DIR}}
 

@@ -14,7 +14,7 @@
 
 <br/>
 
-`branca.go` is [branca token specification](https://github.com/tuupola/branca-spec) implementation for Golang 1.15+.
+`branca.go` is [branca token specification](https://github.com/tuupola/branca-spec) implementation for Golang 1.16+.
 
 Features and benefits:
 
@@ -28,13 +28,13 @@ Features and benefits:
 Make sure you have a working Go 1.16+ workspace (_[instructions](https://golang.org/doc/install)_), then:
 
 ````
-go get pkg.re/essentialkaos/branca.v1
+go get github.com/essentialkaos/branca
 ````
 
 For update to latest stable release, do:
 
 ```
-go get -u pkg.re/essentialkaos/branca.v1
+go get -u github.com/essentialkaos/branca
 ```
 
 ### Usage example
@@ -45,7 +45,7 @@ package main
 import (
   "fmt"
   
-  "pkg.re/essentialkaos/branca.v1"
+  "github.com/essentialkaos/branca"
 )
 
 func main() {
