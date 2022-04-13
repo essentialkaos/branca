@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [master]
 
+permissions:
+  actions: read
+  contents: read
+  statuses: write
+
 jobs:
   Go:
     name: Go
@@ -21,7 +26,7 @@ jobs:
 
     steps:
       - name: Set up Go
-        uses: actions/setup-go@v2
+        uses: actions/setup-go@v3
         with:
           go-version: ${{ matrix.go }}
         id: go
@@ -84,7 +89,7 @@ jobs:
 
     steps:
       - name: Set up Go
-        uses: actions/setup-go@v2
+        uses: actions/setup-go@v3
         with:
           go-version: '1.17.x'
         id: go
