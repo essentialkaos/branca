@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [master]
 
+permissions:
+  actions: read
+  contents: read
+  statuses: write
+
 jobs:
   Go:
     name: Go
