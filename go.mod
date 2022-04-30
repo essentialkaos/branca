@@ -3,7 +3,7 @@ module github.com/essentialkaos/branca
 go 1.17
 
 require (
-	github.com/essentialkaos/check v1.2.1
+	github.com/essentialkaos/check v1.3.0
 	golang.org/x/crypto v0.0.0-20220321153916-2c7772ba3064
 )
 
