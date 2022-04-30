@@ -18,7 +18,6 @@ jobs:
 
     env:
       SRC_DIR: src/github.com/${{ github.repository }}
-      GO111MODULE: auto
 
     strategy:
       matrix:
@@ -31,11 +30,6 @@ jobs:
           go-version: ${{ matrix.go }}
         id: go
 
-      - name: Setup PATH
-        run: |
-          echo "GOPATH=${{ github.workspace }}" >> "$GITHUB_ENV"
-          echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
-
       - name: Checkout
         uses: actions/checkout@v3
         with:
@@ -43,41 +37,35 @@ jobs:
 
       - name: Download dependencies
         working-directory: ${{env.SRC_DIR}}
-        run: |
-          make deps-test
-          make deps
+        run: make deps
 
       - name: Run tests
         working-directory: ${{env.SRC_DIR}}
         run: go test -v -covermode count -coverprofile cover.out
 
-      - name: Install goveralls
-        env:
-          GO111MODULE: off
-        run: go get -v github.com/mattn/goveralls
-
-      - name: Send coverage to Coveralls
-        working-directory: ${{env.SRC_DIR}}
+      - name: Send coverage data
+        uses: essentialkaos/goveralls-action@v1
         env:
           COVERALLS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: goveralls -service github -coverprofile cover.out
+        with:
+          path: ${{env.SRC_DIR}}
+          profile: cover.out
+          parallel: true
+          flag-name: linux-${{ matrix.go }}
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with: 
-          node-version: '14.x'
+  SendCoverage:
+    name: Send Coverage
+    runs-on: ubuntu-latest
 
-      - name: Install codeclimate-test-reporter
-        run: npm install -g codeclimate-test-reporter
+    needs: Go
 
-      - name: Send coverage to Codebeat
-        working-directory: ${{env.SRC_DIR}}
+    steps:
+      - name: Finish parallel tests
+        uses: essentialkaos/goveralls-action@v1
         env:
-          CODECLIMATE_API_HOST: https://codebeat.co/webhooks/code_coverage
-          CODECLIMATE_REPO_TOKEN: ${{ secrets.CODECLIMATE_TOKEN }}
-        run: |
-          sed -i'.original' 's#/v[0-9]\+/#/#g' cover.out
-          codeclimate-test-reporter < cover.out
+          COVERALLS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          parallel-finished: true
 
   Aligo:
     name: Aligo
@@ -94,22 +82,11 @@ jobs:
         uses: actions/setup-go@v3
         with:
           go-version: '1.17.x'
-        id: go
-
-      - name: Setup PATH
-        run: |
-          echo "GOPATH=${{ github.workspace }}" >> "$GITHUB_ENV"
-          echo "GOBIN=${{ github.workspace }}/bin" >> "$GITHUB_ENV"
-          echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
 
       - name: Checkout
         uses: actions/checkout@v3
         with:
           path: ${{env.SRC_DIR}}
-
-      - name: Download dependencies
-        working-directory: ${{env.SRC_DIR}}
-        run: make deps
 
       - name: Check Golang sources with Aligo
         uses: essentialkaos/aligo-action@v1
