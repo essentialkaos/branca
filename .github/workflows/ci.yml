@@ -11,24 +11,23 @@ permissions:
   contents: read
   statuses: write
 
+env:
+  SRC_DIR: src/github.com/${{ github.repository }}
+
 jobs:
   Go:
     name: Go
     runs-on: ubuntu-latest
 
-    env:
-      SRC_DIR: src/github.com/${{ github.repository }}
-
     strategy:
       matrix:
-        go: [ '1.16.x', '1.17.x', '1.18.x' ]
+        go: [ '1.16.x', '1.17.x', '1.18.x', '1.19.x' ]
 
     steps:
       - name: Set up Go
         uses: actions/setup-go@v3
         with:
           go-version: ${{ matrix.go }}
-        id: go
 
       - name: Checkout
         uses: actions/checkout@v3
@@ -73,15 +72,11 @@ jobs:
 
     needs: Go
 
-    env:
-      SRC_DIR: src/github.com/${{ github.repository }}
-      GO111MODULE: auto
-
     steps:
       - name: Set up Go
         uses: actions/setup-go@v3
         with:
-          go-version: '1.17.x'
+          go-version: '1.18.x'
 
       - name: Checkout
         uses: actions/checkout@v3
