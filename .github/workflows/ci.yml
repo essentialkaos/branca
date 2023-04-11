@@ -84,7 +84,7 @@ jobs:
           path: ${{env.SRC_DIR}}
 
       - name: Check Golang sources with Aligo
-        uses: essentialkaos/aligo-action@v1
+        uses: essentialkaos/aligo-action@v2
         with:
           path: ${{env.SRC_DIR}}
           files: ./...
