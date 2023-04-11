@@ -25,15 +25,10 @@ Features and benefits:
 
 ### Installation
 
-Make sure you have a working Go 1.17+ workspace (_[instructions](https://golang.org/doc/install)_), then:
+Make sure you have a working Go 1.18+ workspace (_[instructions](https://golang.org/doc/install)_), then:
 
-````
-go get github.com/essentialkaos/branca
-````
 
-For update to latest stable release, do:
-
-```
+```bash
 go get -u github.com/essentialkaos/branca
 ```
 
