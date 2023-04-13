@@ -14,7 +14,7 @@
 
 <br/>
 
-`branca.go` is [branca token specification](https://github.com/tuupola/branca-spec) implementation for Golang 1.16+.
+`branca.go` is [branca token specification](https://github.com/tuupola/branca-spec) implementation for Golang 1.14+.
 
 Features and benefits:
 
