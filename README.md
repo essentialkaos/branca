@@ -3,8 +3,8 @@
 <p align="center">
   <a href="https://kaos.sh/g/branca.v1?docs"><img src="https://gh.kaos.st/godoc.svg" alt="PkgGoDev" /></a>
   <a href="https://kaos.sh/l/branca"><img src="https://kaos.sh/l/974757272a5d2b6bd52b.svg" alt="Code Climate Maintainability" /></a>
-  <a href="https://kaos.sh/c/branca"><img src="https://kaos.sh/c/branca.svg" alt="Coverage Status" /></a>
   <a href="https://kaos.sh/b/branca"><img src="https://codebeat.co/badges/eca8a1ed-a16f-4005-a7bc-0d16f8d70ae4" alt="Codebeat badge" /></a>
+  <a href="https://kaos.sh/c/branca"><img src="https://kaos.sh/c/branca.svg" alt="Coverage Status" /></a>
   <a href="https://kaos.sh/w/branca/ci"><img src="https://kaos.sh/w/branca/ci.svg" alt="GitHub Actions CI Status" /></a>
   <a href="https://kaos.sh/w/branca/codeql"><img src="https://kaos.sh/w/branca/codeql.svg" alt="GitHub Actions CodeQL Status" /></a>
   <a href="#license"><img src="https://gh.kaos.st/mit.svg" /></a>
