@@ -1,0 +1,2 @@
+[files]
+extend-exclude = ["go.sum","branca_test.go"]
