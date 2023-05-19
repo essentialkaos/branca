@@ -33,19 +33,6 @@ func ExampleNewBranca() {
 	fmt.Printf("Token: %s\n", token)
 }
 
-func ExampleBranca_SetTTL() {
-	key := "mysupppadupppasecretkeyforbranca"
-	brc, err := NewBranca([]byte(key))
-
-	if err != nil {
-		fmt.Printf("Error: %v\n", err)
-		return
-	}
-
-	// Set TTL for 1 minute
-	brc.SetTTL(60)
-}
-
 func ExampleBranca_IsExpired() {
 	key := "mysupppadupppasecretkeyforbranca"
 	brc, err := NewBranca([]byte(key))
@@ -63,7 +50,7 @@ func ExampleBranca_IsExpired() {
 		return
 	}
 
-	fmt.Printf("Token expired: %t", brc.IsExpired(token))
+	fmt.Printf("Token expired: %t", token.IsExpired(0))
 	// Output: Token expired: true
 }
 
