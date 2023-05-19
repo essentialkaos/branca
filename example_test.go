@@ -33,27 +33,6 @@ func ExampleNewBranca() {
 	fmt.Printf("Token: %s\n", token)
 }
 
-func ExampleBranca_IsExpired() {
-	key := "mysupppadupppasecretkeyforbranca"
-	brc, err := NewBranca([]byte(key))
-
-	if err != nil {
-		fmt.Printf("Error: %v\n", err)
-		return
-	}
-
-	data := "87yoI2tNmtPGYxQMYExUw6Yn0zRJccwIiMZxAQ7OBNoLl2P2stmAfD1BLvHOIdwmjGIWxnLrNmHLG"
-	token, err := brc.DecodeString(data)
-
-	if err != nil {
-		fmt.Printf("Error: %v\n", err)
-		return
-	}
-
-	fmt.Printf("Token expired: %t", token.IsExpired(0))
-	// Output: Token expired: true
-}
-
 func ExampleBranca_Encode() {
 	key := "mysupppadupppasecretkeyforbranca"
 	brc, err := NewBranca([]byte(key))
@@ -179,4 +158,25 @@ func ExampleToken_Timestamp() {
 	}
 
 	fmt.Printf("Timestamp: %v\n", token.Timestamp())
+}
+
+func ExampleToken_IsExpired() {
+	key := "mysupppadupppasecretkeyforbranca"
+	brc, err := NewBranca([]byte(key))
+
+	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+		return
+	}
+
+	data := "87yoI2tNmtPGYxQMYExUw6Yn0zRJccwIiMZxAQ7OBNoLl2P2stmAfD1BLvHOIdwmjGIWxnLrNmHLG"
+	token, err := brc.DecodeString(data)
+
+	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+		return
+	}
+
+	fmt.Printf("Token expired: %t", token.IsExpired(0))
+	// Output: Token expired: true
 }
