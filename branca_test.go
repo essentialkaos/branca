@@ -167,13 +167,12 @@ func (s *BrancaSuite) TestDecodingExpired(c *C) {
 	c.Assert(err, IsNil)
 	c.Assert(data, Not(HasLen), 0)
 
-	brc.SetTTL(1)
 	time.Sleep(3 * time.Second)
 
 	token, err := brc.Decode(data)
 
 	c.Assert(err, IsNil)
-	c.Assert(brc.IsExpired(token), Equals, true)
+	c.Assert(token.IsExpired(1), Equals, true)
 }
 
 func (s *BrancaSuite) TestDecodingSizeError(c *C) {

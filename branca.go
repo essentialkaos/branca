@@ -47,7 +47,6 @@ const (
 // Branca is branca struct
 type Branca struct {
 	key []byte
-	ttl uint32
 }
 
 // Token is branca token
@@ -104,17 +103,12 @@ func (t *Token) Timestamp() time.Time {
 	return time.Unix(int64(t.ts), 0)
 }
 
-// ////////////////////////////////////////////////////////////////////////////////// //
-
-// SetTTL sets Time To Live
-func (b *Branca) SetTTL(ttl uint32) {
-	b.ttl = ttl
-}
-
 // IsExpired returns true if given token is expired
-func (b *Branca) IsExpired(t Token) bool {
-	return uint32(time.Now().Unix()) > t.ts+b.ttl
+func (t *Token) IsExpired(ttl uint32) bool {
+	return uint32(time.Now().Unix()) > t.ts+ttl
 }
+
+// ////////////////////////////////////////////////////////////////////////////////// //
 
 // Encode encodes payload to branca token
 func (b *Branca) Encode(payload []byte) ([]byte, error) {
