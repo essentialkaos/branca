@@ -1,4 +1,4 @@
-module github.com/essentialkaos/branca
+module github.com/essentialkaos/branca/v2
 
 go 1.18
 

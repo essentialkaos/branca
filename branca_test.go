@@ -2,7 +2,7 @@ package branca
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 //                                                                                    //
-//                         Copyright (c) 2022 ESSENTIAL KAOS                          //
+//                         Copyright (c) 2023 ESSENTIAL KAOS                          //
 //                  MIT License <https://opensource.org/licenses/MIT>                 //
 //                                                                                    //
 // ////////////////////////////////////////////////////////////////////////////////// //
@@ -65,7 +65,7 @@ func (s *BrancaSuite) TestEncodingAEADError(c *C) {
 	c.Assert(err, IsNil)
 	c.Assert(brc, NotNil)
 
-	brc.key = []byte("abcd")
+	brc = Branca([]byte("abcd"))
 
 	_, err = brc.Encode([]byte("TEST1234abcdАБВГ"))
 
@@ -95,7 +95,7 @@ func (s *BrancaSuite) TestEncodingToStringAEADError(c *C) {
 	c.Assert(err, IsNil)
 	c.Assert(brc, NotNil)
 
-	brc.key = []byte("abcd")
+	brc = Branca([]byte("abcd"))
 
 	_, err = brc.EncodeToString([]byte("TEST1234abcdАБВГ"))
 
@@ -137,7 +137,7 @@ func (s *BrancaSuite) TestDecodingAEADError(c *C) {
 
 	token, _ := brc.Encode([]byte("TEST1234abcdАБВГ"))
 
-	brc.key = []byte("abcd")
+	brc = Branca([]byte("abcd"))
 
 	_, err = brc.Decode(token)
 

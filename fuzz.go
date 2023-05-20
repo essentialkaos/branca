@@ -1,10 +1,11 @@
+//go:build gofuzz
 // +build gofuzz
 
 package branca
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 //                                                                                    //
-//                         Copyright (c) 2022 ESSENTIAL KAOS                          //
+//                         Copyright (c) 2023 ESSENTIAL KAOS                          //
 //                  MIT License <https://opensource.org/licenses/MIT>                 //
 //                                                                                    //
 // ////////////////////////////////////////////////////////////////////////////////// //

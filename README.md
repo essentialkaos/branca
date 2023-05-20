@@ -31,7 +31,7 @@ Make sure you have a working Go 1.18+ workspace (_[instructions](https://go.dev/
 
 
 ```bash
-go get -u github.com/essentialkaos/branca
+go get -u github.com/essentialkaos/branca/v2
 ```
 
 ### Usage example
@@ -42,7 +42,7 @@ package main
 import (
   "fmt"
   
-  "github.com/essentialkaos/branca"
+  "github.com/essentialkaos/branca/v2"
 )
 
 func main() {
@@ -72,12 +72,12 @@ func main() {
 You can run benchmarks by yourself using `make benchmark` command.
 
 ```
-BrancaSuite.BenchmarkBase62Decoding            1000000     1046 ns/op      384 B/op      6 allocs/op
-BrancaSuite.BenchmarkBase62Encoding            1000000     1913 ns/op      512 B/op      6 allocs/op
-BrancaSuite.BenchmarkBrancaDecoding            5000000      373 ns/op       48 B/op      2 allocs/op
-BrancaSuite.BenchmarkBrancaDecodingFromString  1000000     1463 ns/op      432 B/op      8 allocs/op
-BrancaSuite.BenchmarkBrancaEncoding            1000000     1677 ns/op      208 B/op      4 allocs/op
-BrancaSuite.BenchmarkBrancaEncodingToString     500000     3977 ns/op      720 B/op     10 allocs/op
+BrancaSuite.BenchmarkBase62Decoding             1000000   1097 ns/op   408 B/op    7 allocs/op
+BrancaSuite.BenchmarkBase62Encoding             1000000   1745 ns/op   512 B/op    6 allocs/op
+BrancaSuite.BenchmarkBrancaDecoding             5000000    375 ns/op    48 B/op    2 allocs/op
+BrancaSuite.BenchmarkBrancaDecodingFromString   1000000   1523 ns/op   456 B/op    9 allocs/op
+BrancaSuite.BenchmarkBrancaEncoding             1000000   1781 ns/op   152 B/op    4 allocs/op
+BrancaSuite.BenchmarkBrancaEncodingToString      500000   4072 ns/op   664 B/op   10 allocs/op
 ```
 
 ### Build Status
