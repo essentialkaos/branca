@@ -69,7 +69,7 @@ func main() {
 
 ### Benchmarks
 
-You can run benchmarks by yourself using `make bench` command.
+You can run benchmarks by yourself using `make benchmark` command.
 
 ```
 BrancaSuite.BenchmarkBase62Decoding            1000000     1046 ns/op      384 B/op      6 allocs/op
