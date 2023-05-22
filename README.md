@@ -1,7 +1,7 @@
 <p align="center"><a href="#readme"><img src="https://gh.kaos.st/branca.svg"/></a></p>
 
 <p align="center">
-  <a href="https://kaos.sh/g/branca"><img src="https://gh.kaos.st/godoc.svg" alt="PkgGoDev" /></a>
+  <a href="https://kaos.sh/g/branca.v2"><img src="https://gh.kaos.st/godoc.svg" alt="PkgGoDev" /></a>
   <a href="https://kaos.sh/r/branca"><img src="https://kaos.sh/r/branca.svg" alt="GoReportCard" /></a>
   <a href="https://kaos.sh/l/branca"><img src="https://kaos.sh/l/974757272a5d2b6bd52b.svg" alt="Code Climate Maintainability" /></a>
   <a href="https://kaos.sh/b/branca"><img src="https://codebeat.co/badges/eca8a1ed-a16f-4005-a7bc-0d16f8d70ae4" alt="Codebeat badge" /></a>
