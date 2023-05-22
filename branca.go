@@ -141,7 +141,7 @@ func (b Branca) Decode(token []byte) (Token, error) {
 		return Token{}, ErrBadKeyLength
 	}
 
-	if len(token) < 45 {
+	if len(token) < MIN_TOKEN_SIZE {
 		return Token{}, ErrInvalidToken
 	}
 
