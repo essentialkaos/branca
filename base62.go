@@ -2,7 +2,7 @@ package branca
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 //                                                                                    //
-//                         Copyright (c) 2022 ESSENTIAL KAOS                          //
+//                         Copyright (c) 2023 ESSENTIAL KAOS                          //
 //                  MIT License <https://opensource.org/licenses/MIT>                 //
 //                                                                                    //
 // ////////////////////////////////////////////////////////////////////////////////// //
@@ -20,7 +20,7 @@ var ErrNonBase62Char = errors.New("Got non Base62 character")
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 
-// EncodeBase62 encodes bytes slice to base62 encoded string
+// EncodeBase62 encodes bytes slice to Base62 encoded string
 func EncodeBase62(src []byte) string {
 	if len(src) == 0 {
 		return ""
@@ -42,7 +42,7 @@ func EncodeBase62(src []byte) string {
 	return string(d)
 }
 
-// DecodeBase62 decodes bases62 encoded string to byte slice
+// DecodeBase62 decodes Base62 encoded string to byte slice
 func DecodeBase62(src string) ([]byte, error) {
 	if src == "" {
 		return []byte{}, nil
