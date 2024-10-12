@@ -71,12 +71,14 @@ func main() {
 You can run benchmarks by yourself using `make benchmark` command.
 
 ```
-BrancaSuite.BenchmarkBase62Decoding             1000000   1097 ns/op   408 B/op    7 allocs/op
-BrancaSuite.BenchmarkBase62Encoding             1000000   1745 ns/op   512 B/op    6 allocs/op
-BrancaSuite.BenchmarkBrancaDecoding             5000000    375 ns/op    48 B/op    2 allocs/op
-BrancaSuite.BenchmarkBrancaDecodingFromString   1000000   1523 ns/op   456 B/op    9 allocs/op
-BrancaSuite.BenchmarkBrancaEncoding             1000000   1781 ns/op   152 B/op    4 allocs/op
-BrancaSuite.BenchmarkBrancaEncodingToString      500000   4072 ns/op   664 B/op   10 allocs/op
+go version go1.23.2 linux/amd64
+
+BrancaSuite.BenchmarkBase62Decoding            1000000   1106 ns/op   408 B/op    7 allocs/op
+BrancaSuite.BenchmarkBase62Encoding            1000000   1105 ns/op   512 B/op    6 allocs/op
+BrancaSuite.BenchmarkBrancaDecoding            5000000    421 ns/op    48 B/op    2 allocs/op
+BrancaSuite.BenchmarkBrancaDecodingFromString  1000000   1632 ns/op   456 B/op    9 allocs/op
+BrancaSuite.BenchmarkBrancaEncoding            1000000   2108 ns/op   152 B/op    4 allocs/op
+BrancaSuite.BenchmarkBrancaEncodingToString     500000   3854 ns/op   664 B/op   10 allocs/op
 ```
 
 ### Build Status
