@@ -3,8 +3,8 @@
 <p align="center">
   <a href="https://kaos.sh/g/branca.v2"><img src=".github/images/godoc.svg" alt="PkgGoDev" /></a>
   <a href="https://kaos.sh/r/branca"><img src="https://kaos.sh/r/branca.svg" alt="GoReportCard" /></a>
+  <a href="https://kaos.sh/y/branca"><img src="https://kaos.sh/y/93833817a18343c1888050402e7d8d41.svg" alt="Codacy" /></a>
   <a href="https://kaos.sh/l/branca"><img src="https://kaos.sh/l/974757272a5d2b6bd52b.svg" alt="Code Climate Maintainability" /></a>
-  <a href="https://kaos.sh/b/branca"><img src="https://codebeat.co/badges/eca8a1ed-a16f-4005-a7bc-0d16f8d70ae4" alt="Codebeat badge" /></a>
   <br/>
   <a href="https://kaos.sh/c/branca"><img src="https://kaos.sh/c/branca.svg" alt="Coverage Status" /></a>
   <a href="https://kaos.sh/w/branca/ci"><img src="https://kaos.sh/w/branca/ci.svg" alt="GitHub Actions CI Status" /></a>
@@ -16,7 +16,7 @@
 
 <br/>
 
-`branca.go` is [branca token specification](https://github.com/tuupola/branca-spec) implementation for Golang 1.18+.
+`branca.go` is [branca token specification](https://github.com/tuupola/branca-spec) implementation for [Go 1.18+](https://github.com/essentialkaos/.github/blob/master/GO-VERSION-SUPPORT.md).
 
 Features and benefits:
 
@@ -27,7 +27,7 @@ Features and benefits:
 
 ### Installation
 
-Make sure you have a working Go 1.18+ workspace (_[instructions](https://go.dev/doc/install)_), then:
+Make sure you have a working [Go 1.18+](https://github.com/essentialkaos/.github/blob/master/GO-VERSION-SUPPORT.md) workspace (_[instructions](https://go.dev/doc/install)_), then:
 
 
 ```bash
@@ -72,12 +72,14 @@ func main() {
 You can run benchmarks by yourself using `make benchmark` command.
 
 ```
-BrancaSuite.BenchmarkBase62Decoding             1000000   1097 ns/op   408 B/op    7 allocs/op
-BrancaSuite.BenchmarkBase62Encoding             1000000   1745 ns/op   512 B/op    6 allocs/op
-BrancaSuite.BenchmarkBrancaDecoding             5000000    375 ns/op    48 B/op    2 allocs/op
-BrancaSuite.BenchmarkBrancaDecodingFromString   1000000   1523 ns/op   456 B/op    9 allocs/op
-BrancaSuite.BenchmarkBrancaEncoding             1000000   1781 ns/op   152 B/op    4 allocs/op
-BrancaSuite.BenchmarkBrancaEncodingToString      500000   4072 ns/op   664 B/op   10 allocs/op
+go version go1.23.2 linux/amd64
+
+BrancaSuite.BenchmarkBase62Decoding            1000000   1106 ns/op   408 B/op    7 allocs/op
+BrancaSuite.BenchmarkBase62Encoding            1000000   1105 ns/op   512 B/op    6 allocs/op
+BrancaSuite.BenchmarkBrancaDecoding            5000000    421 ns/op    48 B/op    2 allocs/op
+BrancaSuite.BenchmarkBrancaDecodingFromString  1000000   1632 ns/op   456 B/op    9 allocs/op
+BrancaSuite.BenchmarkBrancaEncoding            1000000   2108 ns/op   152 B/op    4 allocs/op
+BrancaSuite.BenchmarkBrancaEncodingToString     500000   3854 ns/op   664 B/op   10 allocs/op
 ```
 
 ### Build Status

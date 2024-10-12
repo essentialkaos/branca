@@ -29,7 +29,7 @@ jobs:
 
     strategy:
       matrix:
-        go: [ '1.18.x', '1.19.x', '1.20.x', '1.21.x', '1.22.x' ]
+        go: [ '1.18.x', '1.19.x', '1.20.x', '1.21.x', '1.22.x', '1.23.x' ]
 
     steps:
       - name: Checkout
@@ -46,7 +46,7 @@ jobs:
       - name: Run tests
         run: go test -v -covermode count -coverprofile cover.out
 
-      - name: Send coverage data
+      - name: Send coverage data to Coveralls
         uses: essentialkaos/goveralls-action@v2
         env:
           COVERALLS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -55,19 +55,34 @@ jobs:
           parallel: true
           flag-name: linux-${{ matrix.go }}
 
+      - name: Send coverage data to Codacy
+        env:
+          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
+        run: |
+          bash <(curl -Ls https://coverage.codacy.com/get.sh) report \
+          --force-coverage-parser go \
+          -r cover.out \
+          --partial
+
   SendCoverage:
     name: Send Coverage
     runs-on: ubuntu-latest
+    if: success() || failure()
 
     needs: Go
 
     steps:
-      - name: Finish parallel tests
+      - name: Finish parallel tests (Coveralls)
         uses: essentialkaos/goveralls-action@v2
         env:
           COVERALLS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           parallel-finished: true
+
+      - name: Finish parallel tests (Codacy)
+        env:
+          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
+        run: bash <(curl -Ls https://coverage.codacy.com/get.sh) final
 
   Aligo:
     name: Aligo
@@ -82,7 +97,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version: '1.21.x'
+          go-version: '1.22.x'
 
       - name: Check Golang sources with Aligo
         uses: essentialkaos/aligo-action@v2
