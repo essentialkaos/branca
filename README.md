@@ -16,7 +16,7 @@
 
 <br/>
 
-`branca.go` is [branca token specification](https://github.com/tuupola/branca-spec) implementation for [Go 1.18+](https://github.com/essentialkaos/.github/blob/master/GO-VERSION-SUPPORT.md).
+`branca.go` is [branca token specification](https://github.com/tuupola/branca-spec) implementation for [Go 1.22+](https://github.com/essentialkaos/.github/blob/master/GO-VERSION-SUPPORT.md).
 
 Features and benefits:
 
@@ -27,7 +27,7 @@ Features and benefits:
 
 ### Installation
 
-Make sure you have a working [Go 1.18+](https://github.com/essentialkaos/.github/blob/master/GO-VERSION-SUPPORT.md) workspace (_[instructions](https://go.dev/doc/install)_), then:
+Make sure you have a working [Go 1.22+](https://github.com/essentialkaos/.github/blob/master/GO-VERSION-SUPPORT.md) workspace (_[instructions](https://go.dev/doc/install)_), then:
 
 
 ```bash

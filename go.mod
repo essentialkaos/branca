@@ -1,6 +1,6 @@
 module github.com/essentialkaos/branca/v2
 
-go 1.18
+go 1.22
 
 require (
 	github.com/essentialkaos/check v1.4.0
