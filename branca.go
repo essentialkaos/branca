@@ -24,7 +24,7 @@ const (
 	// KEY_SIZE is Branca key which is always 32 bytes (i.e 256 bit)
 	KEY_SIZE = 32
 
-	// MIN_TOKEN_SIZE is minimal token size is 45 bytes (with empty payload)
+	// MIN_TOKEN_SIZE is minimal token size in bytes (with empty payload)
 	MIN_TOKEN_SIZE = 45
 )
 
@@ -94,7 +94,7 @@ func (t *Token) Payload() []byte {
 	return t.payload
 }
 
-// Timestamp returns token timestamp
+// Timestamp returns token creation date
 func (t *Token) Timestamp() time.Time {
 	return time.Unix(int64(t.ts), 0)
 }
@@ -135,7 +135,7 @@ func (b Branca) Encode(payload []byte) ([]byte, error) {
 	return buf.Bytes(), nil
 }
 
-// Decode extract payload from branca token
+// Decode extracts payload from branca token
 func (b Branca) Decode(token []byte) (Token, error) {
 	if len(b) != KEY_SIZE {
 		return Token{}, ErrBadKeyLength
@@ -159,7 +159,7 @@ func (b Branca) Decode(token []byte) (Token, error) {
 	return Token{payload, binary.BigEndian.Uint32(token[VERSION_SIZE : VERSION_SIZE+TIMESTAMP_SIZE])}, nil
 }
 
-// EncodeToString create Base62 encoded token with given payload
+// EncodeToString creates Base62 encoded token with given payload
 func (b Branca) EncodeToString(payload []byte) (string, error) {
 	token, err := b.Encode(payload)
 
@@ -170,7 +170,7 @@ func (b Branca) EncodeToString(payload []byte) (string, error) {
 	return EncodeBase62(token), nil
 }
 
-// DecodeString extract payload from Base62 encoded token
+// DecodeString extracts payload from Base62 encoded token
 func (b Branca) DecodeString(token string) (Token, error) {
 	data, err := DecodeBase62(token)
 

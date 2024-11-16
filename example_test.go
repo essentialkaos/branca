@@ -177,6 +177,9 @@ func ExampleToken_IsExpired() {
 		return
 	}
 
-	fmt.Printf("Token expired: %t", token.IsExpired(0))
-	// Output: Token expired: true
+	fmt.Printf("Token expired (TTL: 0): %t\n", token.IsExpired(0))
+	fmt.Printf("Token expired (TTL: 10 years): %t\n", token.IsExpired(3600*24*365*10))
+	// Output:
+	// Token expired (TTL: 0): true
+	// Token expired (TTL: 10 years): false
 }
