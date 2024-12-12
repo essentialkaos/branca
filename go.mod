@@ -4,7 +4,7 @@ go 1.22
 
 require (
 	github.com/essentialkaos/check v1.4.1
-	golang.org/x/crypto v0.30.0
+	golang.org/x/crypto v0.31.0
 )
 
 require (
