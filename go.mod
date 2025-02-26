@@ -1,7 +1,6 @@
 module github.com/essentialkaos/branca/v2
 
-go 1.22
-toolchain go1.23.6
+go 1.23.6
 
 require (
 	github.com/essentialkaos/check v1.4.1
