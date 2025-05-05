@@ -4,7 +4,6 @@
   <a href="https://kaos.sh/g/branca.v2"><img src=".github/images/godoc.svg" alt="PkgGoDev" /></a>
   <a href="https://kaos.sh/r/branca"><img src="https://kaos.sh/r/branca.svg" alt="GoReportCard" /></a>
   <a href="https://kaos.sh/y/branca"><img src="https://kaos.sh/y/93833817a18343c1888050402e7d8d41.svg" alt="Codacy" /></a>
-  <a href="https://kaos.sh/l/branca"><img src="https://kaos.sh/l/974757272a5d2b6bd52b.svg" alt="Code Climate Maintainability" /></a>
   <br/>
   <a href="https://kaos.sh/c/branca"><img src="https://kaos.sh/c/branca.svg" alt="Coverage Status" /></a>
   <a href="https://kaos.sh/w/branca/ci"><img src="https://kaos.sh/w/branca/ci.svg" alt="GitHub Actions CI Status" /></a>
@@ -89,8 +88,12 @@ BrancaSuite.BenchmarkBrancaEncodingToString     500000   3854 ns/op   664 B/op  
 | `master` | [![CI](https://kaos.sh/w/branca/ci.svg?branch=master)](https://kaos.sh/w/branca/ci?query=branch:master) |
 | `develop` | [![CI](https://kaos.sh/w/branca/ci.svg?branch=develop)](https://kaos.sh/w/branca/ci?query=branch:develop) |
 
+### Contributing
+
+Before contributing to this project please read our [Contributing Guidelines](https://github.com/essentialkaos/.github/blob/master/CONTRIBUTING.md).
+
 ### License
 
-[MIT](LICENSE)
+[Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
-<p align="center"><a href="https://essentialkaos.com"><img src="https://gh.kaos.st/ekgh.svg"/></a></p>
+<p align="center"><a href="https://kaos.dev"><img src="https://raw.githubusercontent.com/essentialkaos/.github/refs/heads/master/images/ekgh.svg"/></a></p>
