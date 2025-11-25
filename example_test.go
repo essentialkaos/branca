@@ -2,7 +2,7 @@ package branca
 
 // ////////////////////////////////////////////////////////////////////////////////// //
 //                                                                                    //
-//                         Copyright (c) 2022 ESSENTIAL KAOS                          //
+//                         Copyright (c) 2025 ESSENTIAL KAOS                          //
 //                  MIT License <https://opensource.org/licenses/MIT>                 //
 //                                                                                    //
 // ////////////////////////////////////////////////////////////////////////////////// //
