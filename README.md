@@ -2,10 +2,10 @@
 
 <p align="center">
   <a href="https://kaos.sh/g/branca.v2"><img src=".github/images/godoc.svg" alt="PkgGoDev" /></a>
-  <a href="https://kaos.sh/y/branca"><img src="https://kaos.sh/y/93833817a18343c1888050402e7d8d41.svg" alt="Codacy" /></a>
-  <a href="https://kaos.sh/c/branca"><img src="https://kaos.sh/c/branca.svg" alt="Coverage Status" /></a>
-  <a href="https://kaos.sh/w/branca/ci"><img src="https://kaos.sh/w/branca/ci.svg" alt="GitHub Actions CI Status" /></a>
-  <a href="https://kaos.sh/w/branca/codeql"><img src="https://kaos.sh/w/branca/codeql.svg" alt="GitHub Actions CodeQL Status" /></a>
+  <a href="https://kaos.sh/y/branca"><img src="https://app.codacy.com/project/badge/Grade/93833817a18343c1888050402e7d8d41" alt="Codacy" /></a>
+  <a href="https://kaos.sh/c/branca"><img src="https://coveralls.io/repos/github/essentialkaos/branca/badge.svg" alt="Coverage Status" /></a>
+  <a href="https://kaos.sh/w/branca/ci"><img src="https://github.com/essentialkaos/branca/actions/workflows/ci.yml/badge.svg" alt="GitHub Actions CI Status" /></a>
+  <a href="https://kaos.sh/w/branca/codeql"><img src="https://github.com/essentialkaos/branca/actions/workflows/codeql.yml/badge.svg" alt="GitHub Actions CodeQL Status" /></a>
   <a href="#license"><img src=".github/images/license.svg"/></a>
 </p>
 
