@@ -24,7 +24,7 @@ Features and benefits:
 
 ### Installation
 
-Make sure you have a working [Go 1.23+](https://github.com/essentialkaos/.github/blob/master/GO-VERSION-SUPPORT.md) workspace (_[instructions](https://go.dev/doc/install)_), then:
+Make sure you have a working [Go 1.25+](https://github.com/essentialkaos/.github/blob/master/GO-VERSION-SUPPORT.md) workspace (_[instructions](https://go.dev/doc/install)_), then:
 
 
 ```bash
@@ -83,8 +83,8 @@ BrancaSuite.BenchmarkBrancaEncodingToString     500000   3854 ns/op   664 B/op  
 
 | Branch | Status |
 |--------|----------|
-| `master` | [![CI](https://kaos.sh/w/branca/ci.svg?branch=master)](https://kaos.sh/w/branca/ci?query=branch:master) |
-| `develop` | [![CI](https://kaos.sh/w/branca/ci.svg?branch=develop)](https://kaos.sh/w/branca/ci?query=branch:develop) |
+| `master` | [![CI](https://github.com/essentialkaos/branca/actions/workflows/ci.yml/badge.svg?branch=master)](https://kaos.sh/w/branca/ci?query=branch:master) |
+| `develop` | [![CI](https://github.com/essentialkaos/branca/actions/workflows/ci.yml/badge.svg?branch=develop)](https://kaos.sh/w/branca/ci?query=branch:develop) |
 
 ### Contributing
 
