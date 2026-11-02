@@ -3,7 +3,6 @@
 <p align="center">
   <a href="https://kaos.sh/g/branca.v2"><img src=".github/images/godoc.svg" alt="PkgGoDev" /></a>
   <a href="https://kaos.sh/y/branca"><img src="https://kaos.sh/y/93833817a18343c1888050402e7d8d41.svg" alt="Codacy" /></a>
-  <br/>
   <a href="https://kaos.sh/c/branca"><img src="https://kaos.sh/c/branca.svg" alt="Coverage Status" /></a>
   <a href="https://kaos.sh/w/branca/ci"><img src="https://kaos.sh/w/branca/ci.svg" alt="GitHub Actions CI Status" /></a>
   <a href="https://kaos.sh/w/branca/codeql"><img src="https://kaos.sh/w/branca/codeql.svg" alt="GitHub Actions CodeQL Status" /></a>
@@ -14,7 +13,7 @@
 
 <br/>
 
-`branca.go` is [branca token specification](https://github.com/tuupola/branca-spec) implementation for [Go 1.23+](https://github.com/essentialkaos/.github/blob/master/GO-VERSION-SUPPORT.md).
+`branca.go` is [branca token specification](https://github.com/tuupola/branca-spec) implementation for [Go 1.25+](https://github.com/essentialkaos/.github/blob/master/GO-VERSION-SUPPORT.md).
 
 Features and benefits:
 
